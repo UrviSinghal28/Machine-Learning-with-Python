@@ -1,0 +1,18 @@
+Feature is the input information whereas Label is the output information we are looking for
+We need data for AI/ML models
+
+A tensor is a generalisation of vectors and matrices to potentially higher dimensions. 
+Internally TensorFlow represents tensors as n-dimensional arrays of base datatypes.
+
+Types of tensors: except variable all are immutable
+    -variable
+    -constant
+    -placeholder
+    -sparsetensor
+
+Slicing Tensors:
+You may be familiar with the term "slice" in python and its use on lists, tuples etc. 
+Well the slice operator can be used on tensors to select specific axes or elements.
+When we slice or select elements from a tensor, we can use comma seperated values inside the 
+set of square brackets. Each subsequent value refrences a different dimension of the tensor.
+Ex: tensor[dim1, dim2, dim3]
