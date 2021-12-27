@@ -1,4 +1,4 @@
-#Resource Link: https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbm9hTFV1bGtMeDVKWTIwMl93T3dMdjU5M3BOQXxBQ3Jtc0trZ242RE8ydndyTU5vcmV3UDNsTzVyOGVLZVIzdkVfMnN6a3Y1Q0c2QmhKV3UyTUlNYk9abEhPbHRub29MRExoTDdYcTRnVWM3cVZDbGViOFVnbTFnMXdpbWpTUWRoSk0xMjBnYkQ4dHVTLUlVN21KRQ&q=https%3A%2F%2Fcolab.research.google.com%2Fdrive%2F1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B%23forceEdit%3Dtrue%26sandboxMode%3Dtrue
+#Resource Link: https://www.youtube.com/watch?v=tPYj3fFJGjk&t=2043s
 
 import tensorflow as tf
 import os
