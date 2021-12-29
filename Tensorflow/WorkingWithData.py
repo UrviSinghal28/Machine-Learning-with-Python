@@ -33,3 +33,9 @@ plt.show()
 
 pd.concat([dftrain, y_train], axis=1).groupby('sex').survived.mean().plot(kind='barh').set_xlabel('% survive')
 plt.show()
+
+# After analyzing this information, we should notice the following:
+    # Most passengers are in their 20's or 30's
+    # Most passengers are male
+    # Most passengers are in "Third" class
+    # Females have a much higher chance of surviva
