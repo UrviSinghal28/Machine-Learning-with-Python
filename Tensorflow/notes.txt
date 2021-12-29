@@ -19,7 +19,11 @@ When we slice or select elements from a tensor, we can use comma seperated value
 set of square brackets. Each subsequent value refrences a different dimension of the tensor.
 Ex: tensor[dim1, dim2, dim3]
 
+
+
 xxxxxxxxxxxxxxxxxxxx MODULE 2 xxxxxxxxxxxxxxxxxxxx
+
+
 
 The algorithms we will focus on include:
     Linear Regression
@@ -34,4 +38,31 @@ line of best fit for these points and use it to predict future values.
 Line of best fit refers to a line through a scatter plot of data points 
 that best expresses the relationship between those points
 
+The training data is what we feed to the model so that it can develop and learn. 
+It is usually a much larger size than the testing data.
+
+The testing data is what we use to evaulate the model and see how well it is performing.
+
+Feature Columns:
+    Categorical: Our categorical data is anything that is not numeric! For example,
+    the sex column does not use numbers, it uses the words "male" and "female".
+
+    Numerical
+
+For this specific model data is going to be streamed into it in small batches of 32. 
+This means we will not feed the entire dataset to our model at once, but simply small batches of entries. 
+We will feed these batches to our model multiple times according to the number of epochs.
+
+An epoch is simply one stream of our entire dataset. 
+The number of epochs we define is the amount of times our model will see the entire dataset. 
+We use multiple epochs in hope that after seeing the same data multiple times the model will better determine how to estimate it.
+
+The TensorFlow model we are going to use requires that the data we pass it comes in as a tf.data.Dataset object. 
+This means we must create a input function that can convert our current pandas dataframe into that object.
+
+
+
+Classification: Now that we've covered linear regression it is time to talk about classification. 
+Where regression was used to predict a numeric value, classification is used to seperate 
+data points into classes of different labels.
 
