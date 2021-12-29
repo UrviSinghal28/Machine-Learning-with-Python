@@ -56,4 +56,4 @@ print(column_1_in_row_2_and_3,'\n')
 
 # #creates a session using the default graph
 # with tf.Session() as sess:
-#     tensor.eval() #tensor is the name oh tensor variable
+#     tensor.eval() #tensor is the name of tensor variable
