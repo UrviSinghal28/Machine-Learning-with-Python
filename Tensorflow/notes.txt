@@ -66,3 +66,166 @@ Classification: Now that we've covered linear regression it is time to talk abou
 Where regression was used to predict a numeric value, classification is used to seperate 
 data points into classes of different labels.
 
+For classification tasks there are variety of different estimators/models that we can pick from. 
+Some options are listed below.
+    DNNClassifier (Deep Neural Network)
+    LinearClassifier
+We can choose either model but the DNN seems to be the best choice. 
+This is because we may not be able to find a linear coorespondence in our data.
+
+The number of hidden neurons is an arbitrary number and many experiments 
+and tests are usually done to determine the best choice for these values.
+
+
+
+Clustering: Clustering is a Machine Learning technique that involves the grouping of data points. 
+In theory, data points that are in the same group should have similar properties and/or features, 
+while data points in different groups should have highly dissimilar properties and/or features.
+
+Basic Algorithm for K-Means.
+    Step 1: Randomly pick K points to place K centroids
+    Step 2: Assign all the data points to the centroids by distance. 
+            The closest centroid to a point is the one it is assigned to.
+    Step 3: Average all the points belonging to each centroid to find the middle of those clusters (center of mass). 
+            Place the corresponding centroids into that position.
+    Step 4: Reassign every point once again to the closest centroid.
+    Step 5: Repeat steps 3-4 until no point changes which centroid it belongs to.
+
+
+
+Hidden Markov Models: The Hidden Markov Model is a finite set of states, 
+each of which is associated with a (generally multidimensional) probability distribution []. 
+Transitions among the states are governed by a set of probabilities called transition probabilities.
+A hidden markov model works with probabilities to predict future events or states. 
+In this section we will learn how to create a hidden markov model that can predict the weather.
+
+To create a hidden markov model we need:
+    States
+    Observation Distribution
+    Transition Distribution
+
+States: In each markov model we have a finite set of states. These states could be something 
+like "warm" and "cold" or "high" and "low" or even "red", "green" and "blue". 
+These states are "hidden" within the model, which means we do not direcly observe them.
+
+Observations: Each state has a particular outcome or observation associated with it based on a probability distribution. 
+An example of this is the following: On a hot day Tim has a 80% chance of being happy and a 20% chance of being sad.
+
+Transitions: Each state will have a probability defining the likelyhood of transitioning to a different state. 
+An example is the following: a cold day has a 30% chance of being followed by a 
+hot day and a 70% chance of being follwed by another cold day.
+
+
+
+xxxxxxxxxxxxxxxxxxxx MODULE 3 xxxxxxxxxxxxxxxxxxxx
+
+
+
+Keras: It is a high-level neural networks API, written in Python and capable of running on top of TensorFlow, CNTK, or Theano. 
+It was developed with a focus on enabling fast experimentation.
+Keras is a very powerful module that allows us to avoid having to build neural networks from scratch.
+
+Use Keras if you need a deep learning library that:
+    Allows for easy and fast prototyping (through user friendliness, modularity, and extensibility).
+    Supports both convolutional networks and recurrent networks, as well as combinations of the two.
+    Runs seamlessly on CPU and GPU.
+
+Neural Network: A deep neural network is a layered representation of data. The term "deep" refers to the presence of multiple layers.
+It attempts to represent our data in different ways and in different dimensions by applying specific operations to 
+transform our data at each layer. Another way to express this is that at each layer our data is transformed in order to learn more about it. 
+By performing these transformations, the model can better understand our data and therefore provide a better prediction.
+
+On a lower level neural networks are simply a combination of elementry math operations and some more advanced linear algebra. 
+Each neural network consists of a sequence of layers in which data passes through. 
+These layers are made up on neurons and the neurons of one layer are connected to the next (see below). 
+These connections are defined by what we call a weight (some numeric value). Each layer also has something called a bias, 
+this is simply an extra neuron that has no connections and holds a single numeric value. Data starts at the input layer 
+and is trasnformed as it passes through subsequent layers. The data at each subsequent neuron is defined as the following.
+
+Y=(∑n,i=0 (wi)(xi))+b 
+    w  stands for the weight of each connection to the neuron
+    x  stands for the value of the connected neuron from the previous value
+    b  stands for the bias at each layer, this is a constant
+    n  is the number of connections
+    Y  is the output of the current neuron
+    ∑  stands for sum
+
+The equation you just read is called a weighed sum. We will take this weighted sum at each and every neuron as we pass 
+information through the network. Then we will add what's called a bias to this sum. The bias allows us to 
+shift the network up or down by a constant value. It is like the y-intercept of a line.
+
+But that equation is the not complete one! We forgot a crucial part, the activation function. 
+This is a function that we apply to the equation seen above to add complexity and dimensionality to our network. 
+Our new equation with the addition of an activation function  F(x)  is seen below.
+    Y=F((∑ni=0wixi)+b)
+
+Our network will start with predefined activation functions (they may be different at each layer) but random weights and biases. 
+As we train the network by feeding it data it will learn the correct weights and biases and adjust the network accordingly 
+using a technqiue called backpropagation (explained below). Once the correct weights and biases have been learned our network will hopefully 
+be able to give us meaningful predictions. We get these predictions by observing the values at our final layer, the output layer.
+
+Data: The type of data a neural network processes varies drastically based on the problem being solved. When we build a neural network, 
+we define what shape and kind of data it can accept. It may sometimes be neccessary to modify our dataset so that it can be passed to our neural network.
+
+Some common types of data a neural network uses are listed below.
+    Vector Data (2D)
+    Timeseries or Sequence (3D)
+    Image Data (4D)
+    Video Data (5D)
+
+Layers: 
+    Input Layer: The input layer is the layer that our initial data is passed to. It is the first layer in our neural network.
+
+    Output Layer: The output layer is the layer that we will retrive our results from. Once the data has passed through all other layers it will arrive here.
+
+    Hidden Layer(s): All the other layers in our neural network are called "hidden layers". This is because they are hidden to us, 
+    we cannot observe them. Most neural networks consist of at least one hidden layer but can have an unlimited amount. 
+    Typically, the more complex the model the more hidden layers.
+
+Neurons: Each layer is made up of what are called neurons. Neurons have a few different properties that we will discuss later. 
+The important aspect to understand now is that each neuron is responsible for generating/holding/passing ONE numeric value.
+This means that in the case of our input layer it will have as many neurons as we have input information. 
+For example, say we want to pass an image that is 28x28 pixels, thats 784 pixels. We would need 784 neurons in our input layer to capture each of these pixels.
+This also means that our output layer will have as many neurons as we have output information. The output is a little more complicated to understand 
+so I'll refrain from an example right now but hopefully you're getting the idea.
+But what about our hidden layers? Well these have as many neurons as we decide.
+
+Weights: Weights are associated with each connection in our neural network. Every pair of connected nodes will have one weight that denotes 
+the strength of the connection between them. These are vital to the inner workings of a neural network and will be tweaked as the neural network is trained. 
+The model will try to determine what these weights should be to achieve the best result. Weights start out at a constant or random value and will change as the network sees training data.
+
+Biases: Biases are another important part of neural networks and will also be tweaked as the model is trained. A bias is simply a constant value associated with each layer. 
+It can be thought of as an extra neuron that has no connections. The purpose of a bias is to shift an entire activation function by a constant value. 
+This allows a lot more flexibllity when it comes to choosing an activation and training the network. There is one bias for each layer.
+
+Activation Function: Activation functions are simply a function that is applied to the weighed sum of a neuron. They can be anything we want but are typically 
+higher order/degree functions that aim to add a higher dimension to our data. We would want to do this to introduce more comolexity to our model. 
+By transforming our data to a higher dimension, we can typically make better, more complex predictions.
+A list of some common activation functions and their graphs can be seen below.
+    Relu (Rectified Linear Unit)
+    Tanh (Hyperbolic Tangent)
+    Sigmoid
+
+Backpropagation: Backpropagation is the fundemental algorithm behind training neural networks. It is what changes the weights and biases of our network. 
+To fully explain this process, we need to start by discussing something called a cost/loss function.
+
+Loss/Cost Function: This function is responsible for determining how well the network did. We pass it the output and the expected output, 
+and it returns to us some value representing the cost/loss of the network. This effectively makes the networks job to optimize this cost function, trying to make it as low as possible.
+Some common loss/cost functions include:
+    Mean Squared Error
+    Mean Absolute Error
+    Hinge Loss
+
+Gradient Descent: Gradient descent and backpropagation are closely related. Gradient descent is the algorithm used to find the optimal paramaters (weights and biases) for our network, 
+while backpropagation is the process of calculating the gradient that is used in the gradient descent step.
+Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient. 
+In machine learning, we use gradient descent to update the parameters of our model.
+
+Optimizer: You may sometimes see the term optimizer or optimization function. This is simply the function that implements the backpropagation algorithm described above. 
+Here's a list of a few common ones:
+    Gradient Descent
+    Stochastic Gradient Descent
+    Mini-Batch Gradient Descent
+    Momentum
+    Nesterov Accelerated Gradient
+
