@@ -2,6 +2,17 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 import pandas as pd
 
+# This specific dataset seperates flowers into 3 different classes of species.
+# Setosa
+# Versicolor
+# Virginica
+
+# The information about each flower is the following.
+# sepal length
+# sepal width
+# petal length
+# petal width
+
 # Lets define some constants to help us later on
 CSV_COLUMN_NAMES = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
 SPECIES = ['Setosa', 'Versicolor', 'Virginica']
